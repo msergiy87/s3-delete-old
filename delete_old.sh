@@ -21,10 +21,10 @@ mongodump --out "$DUMP_DIR" -u backupadmin -p 'PASSWD' --authenticationDatabase 
 if [[ "$WEEKLY_BACKUP_DATE" -eq "$CUR_DATE" ]]		# if equal, success
 then
 	tar -zcvf "$COMPRESS_DIR"/MongoBackUp-"$cdata"-weekly.tar.gz "$DUMP_DIR"
-	/usr/bin/aws s3 cp "$COMPRESS_DIR/MongoBackUp-$cdata-weekly.tar.gz" s3://"$S3BUCKET"
+	aws s3 cp "$COMPRESS_DIR/MongoBackUp-$cdata-weekly.tar.gz" s3://"$S3BUCKET"
 else
 	tar -zcvf "$COMPRESS_DIR"/MongoBackUp-"$cdata"-daily.tar.gz "$DUMP_DIR"
-	/usr/bin/aws s3 cp "$COMPRESS_DIR/MongoBackUp-$cdata-daily.tar.gz" s3://"$S3BUCKET"
+	aws s3 cp "$COMPRESS_DIR/MongoBackUp-$cdata-daily.tar.gz" s3://"$S3BUCKET"
 fi
 
 rm -R "$DUMP_DIR"
