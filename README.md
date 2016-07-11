@@ -1,8 +1,8 @@
 # s3-delete-old
-Create mongodb dump and compress weekly and daily backups.
-Cp dump to the S3 bucket.
-Cleanup old backups at the S3 bucket.
-Delete daily backups older than X days.
+- Create mongodb dump and compress weekly and daily backups.
+- Cp dump to the S3 bucket.
+- Cleanup old backups at the S3 bucket.
+- Delete daily backups older than X days.
 
 Requirements
 ------------
